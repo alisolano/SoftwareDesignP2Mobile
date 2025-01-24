@@ -1,29 +1,4 @@
-<ion-menu contentId="home-content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item routerLink="/home" routerDirection="root">
-        <ion-icon name="home" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-item>
-      <ion-item routerLink="/carros" routerDirection="root">
-        <ion-icon name="car-sport" slot="start"></ion-icon>
-        <ion-label>Carros</ion-label>
-      </ion-item>
-      <ion-item routerLink="/reparaciones" routerDirection="root">
-        <ion-icon name="cog" slot="start"></ion-icon>
-        <ion-label>Reparaciones</ion-label>
-      </ion-item>
-      <ion-item routerLink="/about" routerDirection="root">
-        <ion-icon name="information-circle" slot="start"></ion-icon>
-        <ion-label>Actualizaciones</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+<app-sidemenu></app-sidemenu>
 
 <ion-header>
   <ion-toolbar>
@@ -32,12 +7,12 @@
     </ion-buttons>
     <div class="toolbar">
       <ion-title>Inicio</ion-title>
-      <ion-button (click)="openAuthModal()">Iniciar sesión</ion-button>
+      <app-auth-btn></app-auth-btn>
     </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="home-content">
+<ion-content id="page-content">
   <h1>Bienvenido al sistema de taller mecánico</h1>
   <p>Seleccione una opción del menú</p>
 </ion-content>

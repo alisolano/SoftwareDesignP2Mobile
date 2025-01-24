@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { AuthModalComponent } from 'src/app/auth-modal/auth-modal.component';
+import { AuthModalComponent } from 'src/app/components/auth-modal/auth-modal.component';
 
 @NgModule({
   imports: [
