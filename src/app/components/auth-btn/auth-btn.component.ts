@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@auth0/auth0-angular';
+import { AuthModalComponent } from '../auth-modal/auth-modal.component';
+import { ModalController } from '@ionic/angular';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-auth-btn',
@@ -10,19 +12,22 @@ import { AuthService } from '@auth0/auth0-angular';
 export class AuthBtnComponent  implements OnInit {
   public isAuthenticated: boolean = false;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private modalController: ModalController, private router: Router, private authService: UsuarioService) { }
 
   ngOnInit() {
-    this.auth.isAuthenticated$.subscribe(isAuthenticated => {
-      this.isAuthenticated = isAuthenticated;
-    });
+    this.authService.isAuthenticated$.subscribe((value) => {
+      this.isAuthenticated = value;
+    })
   }
 
-  logBtn() {
+  async logBtn() {
     if (this.isAuthenticated) {
       this.router.navigate(["/user"]);
     } else {
-      this.auth.loginWithRedirect();
+      const modal = await this.modalController.create({
+      component: AuthModalComponent,
+    });
+    await modal.present();
     }
   }
 

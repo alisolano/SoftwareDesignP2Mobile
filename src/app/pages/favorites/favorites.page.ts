@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CountryService } from 'src/app/services/CountryService';
 
 @Component({
   selector: 'app-favorites',
@@ -9,7 +8,7 @@ import { CountryService } from 'src/app/services/CountryService';
 export class FavoritesPage {
   favorites: string[] = [];
 
-  constructor(private countryService: CountryService) {
-    this.favorites = this.countryService.getFavorites();
+  constructor() {
+    
   }
 }

@@ -1,30 +1,4 @@
-<ion-menu contentId="cars-content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <ion-item routerLink="/home" routerDirection="root">
-        <ion-icon name="home" slot="start"></ion-icon>
-        <ion-label>Inicio</ion-label>
-      </ion-item>
-      <ion-item routerLink="/carros" routerDirection="root">
-        <ion-icon name="car-sport" slot="start"></ion-icon>
-        <ion-label>Carros</ion-label>
-      </ion-item>
-      <ion-item routerLink="/reparaciones" routerDirection="root">
-        <ion-icon name="cog" slot="start"></ion-icon>
-        <ion-label>Reparaciones</ion-label>
-      </ion-item>
-      <ion-item routerLink="/about" routerDirection="root">
-        <ion-icon name="information-circle" slot="start"></ion-icon>
-        <ion-label>Actualizaciones</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
+<app-sidemenu></app-sidemenu>
 
 <ion-header [translucent]="true">
   <ion-toolbar color="transparent">
@@ -38,6 +12,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="cars-content" [fullscreen]="true">
-</ion-content>
+<ion-content id="page-content" [fullscreen]="true">
+  <!-- lista de carros -->
+  <ion-list>
+    <ion-item *ngFor="let carro of carros">
+      <ion-label>
+        <h2>{{ carro.marca }} - {{ carro.modelo }}</h2>
+        <p>Placa: {{carro.placa}}</p>
+        <p>Color: {{ carro.color }}</p>
+        <p>Año: {{ carro.year }}</p>
+        <p>Estado: {{ carro.estado }}</p>
+        <img [src]="carro.fotoCarro" />
 
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-text *ngIf="carros.length === 0">
+    <p>No tienes carros registrados en el taller</p>
+  </ion-text>
+</ion-content>
