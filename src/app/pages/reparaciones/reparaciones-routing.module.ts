@@ -6,6 +6,11 @@ import { ReparacionesPage } from './reparaciones.page';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: "pending",
+    pathMatch: "full"
+  },
+  {
+    path: ":state",
     component: ReparacionesPage
   }
 ];

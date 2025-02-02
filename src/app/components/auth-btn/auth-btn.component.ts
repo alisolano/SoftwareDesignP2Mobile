@@ -8,6 +8,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   selector: 'app-auth-btn',
   templateUrl: './auth-btn.component.html',
   styleUrls: ['./auth-btn.component.scss'],
+  standalone: false,
 })
 export class AuthBtnComponent  implements OnInit {
   public isAuthenticated: boolean = false;

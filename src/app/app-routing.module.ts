@@ -16,8 +16,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/Carros/carros.module').then( m => m.CarrosPageModule)
   },
   {
-  path: 'reparaciones',
-  loadChildren: () => import('./pages/reparaciones/reparaciones.module').then( m => m.ReparacionesPageModule)
+    path: 'reparaciones',
+    loadChildren: () => import('./pages/reparaciones/reparaciones.module').then( m => m.ReparacionesPageModule)
   },
   {
     path: 'about',

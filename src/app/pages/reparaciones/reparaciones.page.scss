@@ -1,8 +1,40 @@
-.search-bar {
-    background: #333;
-    border-color: transparent;
-    border-radius: 20px;
-    margin: 15px;
+.menu-container {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    menu {
+        display: inline-flex;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+        background-color: #d4d4d4;
+
+        li {
+            list-style: none;
+            height: 100%;
+            width: 200px;
+            text-align: center;
+            align-content: center;
+        }
+
+        li:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.selected {
+    background-color: #949494;
+}
+
+@media (prefers-color-scheme: dark) {
+    .menu-container menu {
+        background-color: #202020;
+    }
+    .selected {
+        background-color: #363636;
+    }
 }
 
 .toolbar {

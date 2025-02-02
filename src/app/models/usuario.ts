@@ -1,9 +1,8 @@
 export interface Usuario {
-    _id:            String;
-    nombre:         String;
-    correo:         String;
-    password:       String;
-    carros:         any[];
-    fotoPerfil?:    String;
+    _id:            string;
+    nombre:         string;
+    correo:         string;
+    carros:         string[];
+    fotoPerfil?:    string;
     __v:            number;
 }

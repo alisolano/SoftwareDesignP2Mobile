@@ -5,6 +5,7 @@ import { LoadingController } from '@ionic/angular';
   selector: 'app-countryCapPage',
   templateUrl: './carros.page.html',
   styleUrls: ['./carros.page.scss'],
+  standalone: false,
 })
 export class carrosPage implements OnInit {
   constructor(

@@ -1,0 +1,28 @@
+<div class="card-container">
+  <div>
+    <h3>{{ reparacion?.nombre || "Nombre" }}</h3>
+    <h4>Para {{ reparacion?.infoCarro }}</h4>
+  </div>
+
+  <div class="info-container">
+    <div class="img-container" slot="start">
+      <img *ngIf="reparacion?.fotoEstado; else noImage" class="image" [src]="reparacion?.fotoEstado">
+      <ng-template #noImage>
+        <img class="image" src="https://static.vecteezy.com/system/resources/thumbnails/022/059/000/small_2x/no-image-available-icon-vector.jpg">
+      </ng-template>
+    </div>
+
+    <div>
+      <p>Enviado por  {{ reparacion?.encargado }}</p>
+      <p>Precio:      {{ reparacion?.precio }}</p>
+      <p *ngIf="tagDeAprobacion()">Estado:      {{ reparacion?.estado }}</p>
+      <ion-buttons *ngIf="tagPendiente(); else aprobacion">
+        <ion-button class="approveBtn" (click)="aprobarReparacion('approved')">Aprobar</ion-button>
+        <ion-button class="approveBtn" (click)="aprobarReparacion('declined')">Denegar</ion-button>
+      </ion-buttons>
+      <ng-template #aprobacion>
+        <p>Aprobado:    {{ reparacion?.aprobado == "approved" }}</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

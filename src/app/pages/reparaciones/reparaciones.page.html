@@ -1,5 +1,3 @@
-<app-sidemenu></app-sidemenu>
-
 <ion-header [translucent]="true">
   <ion-toolbar color="transparent">
     <ion-buttons slot="start">
@@ -10,7 +8,27 @@
       <app-auth-btn></app-auth-btn>
     </div>
   </ion-toolbar>
+  <div class="menu-container">
+    <menu>
+      <li class="menu-item selected" (click)="selectElem('pending', $event.target)">Reparaciones pendientes</li>
+      <li class="menu-item" (click)="selectElem('approved', $event.target)">Reparaciones aprobadas</li>
+      <li class="menu-item" (click)="selectElem('repairing', $event.target)">Reparaciones en progreso</li>
+      <li class="menu-item" (click)="selectElem('completed', $event.target)">Reparaciones completadas</li>
+      <li class="menu-item" (click)="selectElem('declined', $event.target)">Reparaciones denegadas</li>
+    </menu>
+  </div>
 </ion-header>
 
-<ion-content id="page-content" [fullscreen]="true">
+<ion-content [fullscreen]="true">
+  <div style="margin: 2rem;">
+    <ion-list *ngIf="isAuthenticated; else noUser">
+      <ion-item *ngFor="let reparacion of reparaciones">
+        <app-reparacion-card [reparacion]="reparacion" [tag]="state"></app-reparacion-card>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #noUser>
+      <label class="Advise">Registrese para poder utilizar esta opción</label>
+    </ng-template>
+  </div>
 </ion-content>

@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { RouterModule } from '@angular/router';
+import { ReparacionCardComponent } from './reparacion-card/reparacion-card.component';
 
 
 
 @NgModule({
   declarations: [
       AuthBtnComponent,
-      SidemenuComponent
+      SidemenuComponent,
+      ReparacionCardComponent
     ],
     imports: [
       CommonModule,
@@ -21,7 +23,8 @@ import { RouterModule } from '@angular/router';
     ],
     exports: [
       AuthBtnComponent,
-      SidemenuComponent
+      SidemenuComponent,
+      ReparacionCardComponent
     ]
 })
 export class ComponentsModule { }
