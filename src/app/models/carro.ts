@@ -1,12 +1,12 @@
 export interface Carro {
-    _id: string;
+    _id: string; 
     placa: string;
-    color: string;
-    modelo: string;
-    marca: string;
-    year: string;
+    color: string;  
+    modelo: string;        
+    marca: string;         
+    year: number;         
     estado: string;
-    reparaciones: any[];
     fotoCarro: string;
-    __v: number;
-}
+    usuarioId: string;    
+  }
+  

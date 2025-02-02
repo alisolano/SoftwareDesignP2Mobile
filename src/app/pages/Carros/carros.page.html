@@ -11,5 +11,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-</ion-content>
+  <!-- lista de carros -->
+  <ion-list>
+    <ion-item *ngFor="let carro of carros">
+      <ion-label>
+        <h2>{{ carro.marca }} - {{ carro.modelo }}</h2>
+        <p>Placa: {{carro.placa}}</p>
+        <p>Color: {{ carro.color }}</p>
+        <p>Año: {{ carro.year }}</p>
+        <p>Estado: {{ carro.estado }}</p>
+        <img [src]="carro.fotoCarro" />
 
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-text *ngIf="carros.length === 0">
+    <p>No tienes carros registrados en el taller</p>
+  </ion-text>
+</ion-content>
