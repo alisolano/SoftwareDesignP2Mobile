@@ -16,13 +16,14 @@
       <p>Enviado por  {{ reparacion?.encargado }}</p>
       <p>Precio:      {{ reparacion?.precio }}</p>
       <p *ngIf="tagDeAprobacion()">Estado:      {{ reparacion?.estado }}</p>
-      <ion-buttons *ngIf="tagPendiente(); else aprobacion">
-        <ion-button class="approveBtn" (click)="aprobarReparacion('approved')">Aprobar</ion-button>
-        <ion-button class="approveBtn" (click)="aprobarReparacion('declined')">Denegar</ion-button>
-      </ion-buttons>
       <ng-template #aprobacion>
         <p>Aprobado:    {{ reparacion?.aprobado == "approved" }}</p>
       </ng-template>
     </div>
   </div>
+    
+  <ion-buttons *ngIf="tagPendiente(); else aprobacion">
+    <ion-button class="approveBtn" (click)="aprobarReparacion('approved')">Aprobar</ion-button>
+    <ion-button class="approveBtn" (click)="aprobarReparacion('declined')">Denegar</ion-button>
+  </ion-buttons>
 </div>
